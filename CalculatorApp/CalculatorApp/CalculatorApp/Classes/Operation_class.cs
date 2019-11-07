@@ -41,7 +41,7 @@ namespace CalculatorApp.Classes
 
         public override string ToString()
         {
-            return $"({Id}) {leftOperand} {Operator} {rightOperand} {dateOfOperation}";
+            return $"{Id}) {leftOperand} {Operator} {rightOperand}    {dateOfOperation}";
         }
 
 

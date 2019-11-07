@@ -34,64 +34,14 @@ namespace CalculatorApp.Classes
             return database.QueryAsync<Operation>("SELECT * FROM [Operation] WHERE [Done] = 0");
         }
 
-        /*
-        string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-        public bool createDataBase()
+
+        
+        public string getCount()
         {
-            
-            {
-                using (var connection = new SQLiteAsyncConnection(System.IO.Path.Combine(folder, "operationsDB.db")))
-                {
-                    connection.CreateTableAsync<Operation>().Wait(); ;
-                    return true;
-                }
-            }
-            catch(SQLiteException ex)
-            {   
-                return false;
-                throw (ex);
-            }
+            var task = database.Table<Operation>().CountAsync();
+            string result = task.ToString();
+            return result; 
         }
-
-       
-
-
-
-        public bool insertIntoOperations(Operation oper)
-        {
-            try
-            {
-                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "operationsDB.db")))
-                {
-                    connection.Insert(oper);
-                    return true;
-                }
-            }
-            catch (SQLiteException ex){    
-                return false;
-                throw (ex);
-            }
-        }
-
-        public List<Operation> selectTableOperations()
-        {
-            try
-            {
-                using (var connection = new SQLiteConnection(System.IO.Path.Combine(folder, "operationsDB.db")))
-                {
-                    return connection.Table<Operation>().ToList();
-
-                }
-            }
-            catch (SQLiteException ex)
-            {
-                throw (ex);
-                return null;
-            }
-        }
-
-    */
-
 
 
     }

@@ -12,7 +12,11 @@ namespace CalculatorApp.Views
     public class OperationsView : ContentPage
     {
 
+        const int MAXROWS = 50;
+        
+        //Getting DB path
         static DataBase database;
+        
         public static DataBase Database{
             get{
                 if (database == null){
@@ -23,7 +27,7 @@ namespace CalculatorApp.Views
             }
         }
 
-    
+        
 
         private ListView recordsView;
 
@@ -31,14 +35,32 @@ namespace CalculatorApp.Views
         {
             recordsView = new ListView();
             this.Title = "Historial";
-            string a = Database.getItem(1).Result.ToString();
+            List<string> history = new List<string>();
 
-            Label r = new Label();
-            r.Text = a;
+
+
+            string newEntry;
+            
+            for(int i = 1; i < MAXROWS; i++){
+                try{
+                    newEntry = Database.getItem(i).Result.ToString();
+                    history.Add(newEntry);
+                }
+                catch(NullReferenceException ex){
+                    return;
+                }
+            }
+            
+            history.Add(Database.getItem(3).Result.ToString());
+            recordsView.ItemsSource = history;
+            
+
+           
+            
             Content = new StackLayout
             {
                 Children = {
-                    r,
+                    recordsView,
 
 
                 }
