@@ -18,6 +18,7 @@ namespace CalculatorApp
     public partial class MainPage : ContentPage
     {
 
+        //main buttons
         Button plus, minus, multiply, divide, calculate, history,clear;
         Button[] numbers = new Button[10];
 
@@ -26,15 +27,14 @@ namespace CalculatorApp
         Label resultLabel = new Label(); 
         
         
+        // current operation values
         private double stored = 0.0;
         private double rightSide = 0.0;
         private double result = 0.0;
         private string currentOperator = "";
 
         //database utilities
-        //DataBase db = new DataBase();
         Operation record;
-
 
         static DataBase database;
         public static DataBase Database{
@@ -47,8 +47,7 @@ namespace CalculatorApp
             }
         }
 
-
-
+        // stored value(left side), right side value and result value properties
         public double StoredValue{
 
             get{
@@ -86,7 +85,6 @@ namespace CalculatorApp
         public MainPage()
         {
             InitializeComponent();
-            //db.createDataBase();
             
             // initializing buttons
             plus = new Button() { Text = "+" };
@@ -106,7 +104,7 @@ namespace CalculatorApp
             history.Pressed += History_Pressed;
             clear.Pressed += Clear_Pressed;
 
-            
+            //setting the text to each Keyboeard button (0,1,2...)
             for (int i = 0; i < numbers.Count(); i++){
                 ref var currentButton = ref numbers[i];
                 currentButton = new Button() { Text = i.ToString() };
@@ -115,22 +113,56 @@ namespace CalculatorApp
             }
 
             #region Style
-            numbers[0].BackgroundColor = Xamarin.Forms.Color.Azure;
-            numbers[0].FontSize = 20;
-            numbers[0].FontFamily = "Arial";
+            for(int i = 0; i <10; i++)
+            {
+                numbers[i].BackgroundColor = Xamarin.Forms.Color.DarkBlue;
+                numbers[i].FontFamily = "Arial";
+                numbers[i].FontSize = 20;
+                numbers[i].TextColor = Xamarin.Forms.Color.White;
+            }
+            minus.BackgroundColor = Xamarin.Forms.Color.DarkBlue;
+            minus.FontFamily = "Arial";
+            minus.FontSize = 20;
+            minus.TextColor = Xamarin.Forms.Color.White;
+
+            plus.BackgroundColor = Xamarin.Forms.Color.DarkBlue;
+            plus.FontFamily = "Arial";
+            plus.FontSize = 20;
+            plus.TextColor = Xamarin.Forms.Color.White;
+
+            divide.BackgroundColor = Xamarin.Forms.Color.DarkBlue;
+            divide.FontFamily = "Arial";
+            divide.FontSize = 20;
+            divide.TextColor = Xamarin.Forms.Color.White;
+
+            multiply.BackgroundColor = Xamarin.Forms.Color.DarkBlue;
+            multiply.FontFamily = "Arial";
+            multiply.FontSize = 20;
+            multiply.TextColor = Xamarin.Forms.Color.White;
+
+
             resultLabel.FontSize = 24;
             resultLabel.FontFamily = "Arial";
+            resultLabel.HorizontalTextAlignment = TextAlignment.Center;
+            resultLabel.VerticalTextAlignment = TextAlignment.Center;
 
             leftOperand.FontSize = 24;
             leftOperand.FontFamily = "Arial";
+            leftOperand.HorizontalTextAlignment = TextAlignment.Center;
+            leftOperand.VerticalTextAlignment = TextAlignment.Center;
+
 
             Operator.FontSize = 24;
             Operator.FontFamily = "Arial";
+            Operator.HorizontalTextAlignment = TextAlignment.Center;
+            Operator.VerticalTextAlignment = TextAlignment.Center;
+
 
             #endregion
 
 
             #region Setting Layout (using template)
+            //we use a template (Grid template/AutoGrid.cs) to make the grid easier
             var layout = new rMultiplatform.AutoGrid();
             layout.DefineGrid(4, 6);
 
@@ -164,6 +196,7 @@ namespace CalculatorApp
             #endregion
         }
 
+        //handlears for button pressed actions
         private void Clear_Pressed(object sender, EventArgs e)
         {
             StoredValue = 0.0;
@@ -200,6 +233,7 @@ namespace CalculatorApp
                     break;
             }
 
+            //creating and inserting the new record
             record = new Operation();
             record.Id = 1;
             record.leftOperand = StoredValue;
@@ -209,12 +243,6 @@ namespace CalculatorApp
             record.dateOfOperation = DateTime.Now.ToString();
             Database.insertItemAsync(record);
             
-            //db.insertIntoOperations(record);
-            
-            
-            //var pk = db.Table<Operation>().OrderByDescending(op => op.Id).FirstOrDefault();
-           
-            //Changing values when operation is performed
             StoredValue = Result;
             RightSideValue = 0.0;
             Change_Result("");

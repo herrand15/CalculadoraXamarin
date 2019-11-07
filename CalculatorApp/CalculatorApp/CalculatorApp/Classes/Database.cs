@@ -17,6 +17,8 @@ namespace CalculatorApp.Classes
             database.CreateTableAsync<Operation>().Wait();
         }
 
+
+        // Database operations
         public Task<int> insertItemAsync(Operation item)
         {
                 return database.InsertAsync(item);
@@ -35,7 +37,7 @@ namespace CalculatorApp.Classes
         }
 
 
-        
+        //returns row count
         public string getCount()
         {
             var task = database.Table<Operation>().CountAsync();

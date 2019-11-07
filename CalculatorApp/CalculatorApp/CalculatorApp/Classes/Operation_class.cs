@@ -5,6 +5,7 @@ using SQLite;
 
 namespace CalculatorApp.Classes
 {
+    //OPERATION MODEL
     public class Operation
     {
         [PrimaryKey,AutoIncrement]
