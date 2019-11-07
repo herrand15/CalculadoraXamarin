@@ -1,0 +1,11 @@
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\bin\Debug\netstandard2.0\SQLiteApp.deps.json
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\bin\Debug\netstandard2.0\SQLiteApp.dll
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\obj\Debug\netstandard2.0\SQLiteApp.csprojAssemblyReference.cache
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\obj\Debug\netstandard2.0\SQLiteApp.AssemblyInfoInputs.cache
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\obj\Debug\netstandard2.0\SQLiteApp.AssemblyInfo.cs
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\bin\Debug\netstandard2.0\SQLiteApp.pdb
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\bin\Debug\netstandard2.0\CalculatorApp.dll
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\bin\Debug\netstandard2.0\CalculatorApp.pdb
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\obj\Debug\netstandard2.0\SQLiteApp.csproj.CopyComplete
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\obj\Debug\netstandard2.0\SQLiteApp.dll
+C:\Users\Jorge\source\repos\CalculatorApp\SQLiteApp\obj\Debug\netstandard2.0\SQLiteApp.pdb

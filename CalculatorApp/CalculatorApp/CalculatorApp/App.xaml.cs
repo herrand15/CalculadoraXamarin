@@ -1,6 +1,9 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
+using CalculatorApp.Classes;
+using System.IO;
 
 namespace CalculatorApp
 {
@@ -10,8 +13,16 @@ namespace CalculatorApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
+           
         }
+
+        
+
+
+
+
+
 
         protected override void OnStart()
         {

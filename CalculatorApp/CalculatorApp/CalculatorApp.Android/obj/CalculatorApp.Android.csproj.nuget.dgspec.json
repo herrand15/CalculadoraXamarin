@@ -42,6 +42,10 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Xamarin.Android.Support.Core.Utils": {
               "target": "Package",
               "version": "[28.0.0.1, )"
@@ -53,6 +57,10 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.2.0.709249, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.6.292, )"
             }
           }
         }
@@ -110,6 +118,10 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.2.0.709249, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.6.292, )"
             }
           },
           "imports": [
